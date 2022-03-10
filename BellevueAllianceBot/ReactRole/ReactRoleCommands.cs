@@ -13,16 +13,33 @@ namespace BellevueAllianceBot.ReactRole
         {
             await ctx.DeferAsync();
 
-            foreach (ReactRoleManager.ReactRoleMessage message in ReactRoleManager._reactRoles)
+            // Check if the messages are already in the channel
+            bool alreadySent = (await channel.GetMessageAsync(ReactRoleManager._reactRoles[0].MessageId)) != null;
+
+            if (!alreadySent)
             {
-                DiscordMessage createdMessage = await channel.SendMessageAsync(message.ToMessage());
-                message.MessageId = createdMessage.Id;
+                foreach (ReactRoleManager.ReactRoleMessage message in ReactRoleManager._reactRoles)
+                {
+                    DiscordMessage createdMessage = await channel.SendMessageAsync(message.ToMessage());
+                    message.MessageId = createdMessage.Id;
 
 
-                // Let's not piss of discord with way too many requests
-                await Task.Delay(1300);
+                    // Let's not piss of discord with way too many requests
+                    await Task.Delay(1300);
+                }
+                ReactRoleManager.Save();
             }
-            ReactRoleManager.Save();
+            else
+            {
+                foreach (ReactRoleManager.ReactRoleMessage message in ReactRoleManager._reactRoles)
+                {
+                    DiscordMessage updatedMessage = await channel.GetMessageAsync(message.MessageId);
+                    await updatedMessage.ModifyAsync(message.ToMessage());
+
+                    // Let's not piss of discord with way too many requests
+                    await Task.Delay(1300);
+                }
+            }
 
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Finished!"));
         }
