@@ -50,7 +50,7 @@ namespace BellevueAllianceBot.ReactRole
             DiscordMember member = await guild.GetMemberAsync(user.Id);
 
             // Check if they currently have the role
-            bool hasRole = member.Roles.Any(anyRole => role == anyRole);
+            bool hasRole = member.Roles.Contains(role);
             if (adding)
             {
                 // If we are adding a reaction, then we only do something if they don't have it
@@ -95,12 +95,21 @@ namespace BellevueAllianceBot.ReactRole
             }
             else
             {
-                foreach (string value in e.Values)
-                {
-                    DiscordRole role = e.Guild.GetRole(ulong.Parse(value));
+                HashSet<ulong> reactRoles = reactRoleMessage.ReactRoles!.Select(reactRole => reactRole.RoleId).ToHashSet();
 
-                    await AddOrRemoveRole(member, role);
+                // Start off with a list that has all the roles the user selected
+                List<DiscordRole> newRoles = e.Values.Select(value => e.Guild.GetRole(ulong.Parse(value))).ToList();
+                foreach (DiscordRole role in member.Roles)
+                {
+                    // If they didn't specfically click it, then check if it was in the react role prompt
+                    if (!reactRoles.Contains(role.Id))
+                    {
+                        // Only if it wasn't in the prompt should we add it
+                        newRoles.Add(role);
+                    }
                 }
+
+                await member.ReplaceRolesAsync(newRoles);
             }
 
             await e.Interaction.CreateFollowupMessageAsync(new DiscordFollowupMessageBuilder()
