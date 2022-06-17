@@ -9,7 +9,7 @@ RUN dotnet publish -c Release -o out
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/runtime:6.0
 WORKDIR BellevueAllianceBot
-COPY BellevueAllianceBot/*.json .
+COPY BellevueAllianceBot/*.json ./
 COPY --from=build-env /BellevueAllianceBot/out .
 
 # Run the app on container startup
