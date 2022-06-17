@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BellevueAllianceBot
 {
-    public class BotMain
+    public class Program
     {
         public static DiscordClient Client { get; } = new(new DiscordConfiguration()
         {

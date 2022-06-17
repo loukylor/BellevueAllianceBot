@@ -17,9 +17,9 @@ namespace BellevueAllianceBot.ReactRole
         
         public void OnBotInit()
         {
-            BotMain.Client.MessageReactionAdded+= HandleReaction;
-            BotMain.Client.MessageReactionRemoved += HandleReactionRemove;
-            BotMain.Client.ComponentInteractionCreated += HandleInteractionCreated;
+            Program.Client.MessageReactionAdded+= HandleReaction;
+            Program.Client.MessageReactionRemoved += HandleReactionRemove;
+            Program.Client.ComponentInteractionCreated += HandleInteractionCreated;
         }
 
         private static Task HandleReaction(DiscordClient _, MessageReactionAddEventArgs e)
@@ -35,7 +35,7 @@ namespace BellevueAllianceBot.ReactRole
             DiscordEmoji emoji,
             bool adding)
         {
-            if (message.Author != BotMain.Client.CurrentUser)
+            if (message.Author != Program.Client.CurrentUser)
                 return;
 
             if (user.IsBot)
@@ -229,9 +229,9 @@ namespace BellevueAllianceBot.ReactRole
 
             public DiscordSelectComponentOption ToOption()
             {
-                DiscordRole? role = BotMain.BAGuild?.GetRole(RoleId);
+                DiscordRole? role = Program.BAGuild?.GetRole(RoleId);
                 string name = role == null ? "error lol oops" : role.Name;
-                DiscordComponentEmoji emoji = new(DiscordEmoji.FromName(BotMain.Client, Emoji));
+                DiscordComponentEmoji emoji = new(DiscordEmoji.FromName(Program.Client, Emoji));
 
                 return new DiscordSelectComponentOption(name, RoleId.ToString(), emoji: emoji);
             }
