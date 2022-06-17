@@ -37,7 +37,7 @@ namespace BellevueAllianceBot.ReactRole
                     await updatedMessage.ModifyAsync(message.ToMessage());
 
                     // Let's not piss of discord with way too many requests
-                    await Task.Delay(1300);
+                    await Task.Delay(2000);
                 }
             }
 
