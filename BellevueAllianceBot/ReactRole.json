@@ -1,0 +1,237 @@
+[
+  {
+    "message_id": 951344151688015893,
+    "embed": {
+      "color": 0,
+      "title": "Teams",
+      "description": "Role for which BA team you are on."
+    },
+    "id": "teams",
+    "react_roles": [
+      {
+        "emoji": ":trc_logo:",
+        "role_id": 569178518748004352
+      },
+      {
+        "emoji": ":nrg_logo:",
+        "role_id": 569178260508770325
+      },
+      {
+        "emoji": ":wolverine_logo:",
+        "role_id": 569179123579355190
+      },
+      {
+        "emoji": ":saints_logo:",
+        "role_id": 569177618503696404
+      },
+      {
+        "emoji": ":robototes_logo:",
+        "role_id": 569177866663755812
+      },
+      {
+        "emoji": ":sushi_squad_logo:",
+        "role_id": 942469827547766874
+      }
+    ],
+    "max": 25,
+    "min": 1,
+    "years": false
+  },
+  {
+    "message_id": 951344158277247016,
+    "embed": {
+      "color": 0,
+      "title": "Subteams"
+    },
+    "id": "subteams",
+    "react_roles": [
+      {
+        "emoji": ":tools:",
+        "role_id": 569180789460434984
+      },
+      {
+        "emoji": ":straight_ruler:",
+        "role_id": 569181015470506015
+      },
+      {
+        "emoji": ":electric_plug:",
+        "role_id": 569181067316297758
+      },
+      {
+        "emoji": ":computer:",
+        "role_id": 569181155593814016
+      },
+      {
+        "emoji": ":dividers:",
+        "role_id": 569181299349389315
+      },
+      {
+        "emoji": ":camera_with_flash:",
+        "role_id": 569181414348554246
+      },
+      {
+        "emoji": ":chart_with_upwards_trend:",
+        "role_id": 569181590379429888
+      },
+      {
+        "emoji": ":money_with_wings:",
+        "role_id": 569182310864388108
+      },
+      {
+        "emoji": ":homes:",
+        "role_id": 575837734984220683
+      },
+      {
+        "emoji": ":telescope:",
+        "role_id": 951355052642172961
+      },
+      {
+        "emoji": ":bank:",
+        "role_id": 964954769473032253
+      }
+    ],
+    "max": 25,
+    "min": 1,
+    "years": false
+  },
+  {
+    "message_id": 951344164975570985,
+    "embed": {
+      "color": 0,
+      "title": "FIRST People"
+    },
+    "id": "first_people",
+    "react_roles": [
+      {
+        "emoji": ":compass:",
+        "role_id": 569881395707772939
+      },
+      {
+        "emoji": ":first_place:",
+        "role_id": 572231744481263616
+      },
+      {
+        "emoji": ":woman_student:",
+        "role_id": 569180668370616340
+      }
+    ],
+    "max": 25,
+    "min": 1,
+    "years": false
+  },
+  {
+    "message_id": 951344172709838909,
+    "embed": {
+      "color": 0,
+      "title": "Pit and Drive Team"
+    },
+    "id": "pit_and_drive_team",
+    "react_roles": [
+      {
+        "emoji": ":safety_vest:",
+        "role_id": 572482500937646084
+      },
+      {
+        "emoji": ":dart:",
+        "role_id": 572482809848135680
+      },
+      {
+        "emoji": ":shopping_cart:",
+        "role_id": 572482648451055646
+      },
+      {
+        "emoji": ":joystick:",
+        "role_id": 572482908627927051
+      },
+      {
+        "emoji": ":open_hands:",
+        "role_id": 572482954295640112
+      }
+    ],
+    "max": 25,
+    "min": 1,
+    "years": false
+  },
+  {
+    "message_id": 951344179525611570,
+    "embed": {
+      "color": 0,
+      "title": "Games"
+    },
+    "id": "games",
+    "react_roles": [
+      {
+        "emoji": ":leagueoflegends:",
+        "role_id": 690620997946179644
+      },
+      {
+        "emoji": ":overwatch:",
+        "role_id": 690621249772191776
+      },
+      {
+        "emoji": ":factorio:",
+        "role_id": 690621654593962024
+      },
+      {
+        "emoji": ":townofsalem:",
+        "role_id": 690621772470419577
+      },
+      {
+        "emoji": ":csgo:",
+        "role_id": 690621551627993168
+      },
+      {
+        "emoji": ":minecraft:",
+        "role_id": 690622121981771828
+      },
+      {
+        "emoji": ":zestylemon:",
+        "role_id": 690622217385541712
+      },
+      {
+        "emoji": ":valorant:",
+        "role_id": 962804130676637706
+      }
+    ],
+    "max": 25,
+    "min": 1,
+    "years": false
+  },
+  {
+    "message_id": 951344185829646378,
+    "embed": {
+      "color": 0,
+      "title": "Pronouns"
+    },
+    "id": "pronouns",
+    "react_roles": [
+      {
+        "emoji": ":red_circle:",
+        "role_id": 808572603953840139
+      },
+      {
+        "emoji": ":blue_circle:",
+        "role_id": 808572607645089813
+      },
+      {
+        "emoji": ":purple_circle:",
+        "role_id": 808572611298066442
+      }
+    ],
+    "max": 25,
+    "min": 1,
+    "years": false
+  },
+  {
+    "message_id": 951344192808976394,
+    "embed": {
+      "color": 0,
+      "title": "Graduation Year"
+    },
+    "id": "graduation_year",
+    "react_roles": null,
+    "max": 1,
+    "min": 1,
+    "years": true
+  }
+]
