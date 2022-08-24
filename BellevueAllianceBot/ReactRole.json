@@ -31,6 +31,10 @@
       {
         "emoji": ":sushi_squad_logo:",
         "role_id": 942469827547766874
+      },
+      {
+        "emoji": ":sparkling_heart:",
+        "role_id": 1001699408641015808
       }
     ],
     "max": 25,
