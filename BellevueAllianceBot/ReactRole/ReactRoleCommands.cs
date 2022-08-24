@@ -1,6 +1,8 @@
 ﻿using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
 using DSharpPlus.SlashCommands.Attributes;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BellevueAllianceBot.ReactRole
@@ -8,9 +10,15 @@ namespace BellevueAllianceBot.ReactRole
     public class ReactRoleCommands : ApplicationCommandModule
     {
         [SlashCommand("SendReactRoles", "Send the react role messages in the specified channel.")]
-        [SlashRequireUserPermissions(DSharpPlus.Permissions.Administrator)]
         public async Task SendReactRoles(InteractionContext ctx, [Option("channel", "The channel to send the react role messages in.")] DiscordChannel channel)
         {
+            if (!Program.Client.CurrentApplication.Owners.Any(user => user.Id == ctx.User.Id)
+                && !(ctx.Channel != null && ctx.Channel.PermissionsFor(ctx.Member).HasFlag(DSharpPlus.Permissions.Administrator)))
+            {
+                Console.WriteLine("Failed check");
+                return;
+            }
+
             await ctx.DeferAsync();
 
             // Check if the messages are already in the channel
