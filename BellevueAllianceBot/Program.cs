@@ -6,6 +6,7 @@ using DSharpPlus.SlashCommands;
 using DSharpPlus.SlashCommands.EventArgs;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace BellevueAllianceBot
     {
         public static DiscordClient Client { get; } = new(new DiscordConfiguration()
         {
-            Token = Config.Instance.Token,
+            Token = File.ReadAllText("token"),
             Intents = DiscordIntents.AllUnprivileged
         });
 

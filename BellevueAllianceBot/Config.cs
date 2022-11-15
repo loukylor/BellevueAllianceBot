@@ -9,9 +9,6 @@ namespace BellevueAllianceBot
         
         public static readonly Config Instance = Create();
 
-        [JsonProperty("token")]
-        public string Token { get; set; } = "";
-
         [JsonProperty("ba_id")]
         public ulong BADiscordID { get; set; }
 
