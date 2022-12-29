@@ -1,4 +1,5 @@
 ﻿using DSharpPlus.Entities;
+using DSharpPlus.Exceptions;
 using DSharpPlus.SlashCommands;
 using System;
 using System.Linq;
@@ -20,33 +21,35 @@ namespace BellevueAllianceBot.ReactRole
 
             await ctx.DeferAsync();
 
-            // Check if the messages are already in the channel
-            bool alreadySent = (await channel.GetMessageAsync(ReactRoleManager._reactRoles[0].MessageId)) != null;
-
-            if (!alreadySent)
+            foreach (ReactRoleManager.ReactRoleMessage message in ReactRoleManager._reactRoles)
             {
-                foreach (ReactRoleManager.ReactRoleMessage message in ReactRoleManager._reactRoles)
+                if (message.MessageId == 0)
                 {
-                    DiscordMessage createdMessage = await channel.SendMessageAsync(message.ToMessage());
-                    message.MessageId = createdMessage.Id;
+                    continue;
+                }
 
-
-                    // Let's not piss of discord with way too many requests
+                try
+                {
+                    await (await channel.GetMessageAsync(message.MessageId)).DeleteAsync();
                     await Task.Delay(1300);
                 }
-                ReactRoleManager.Save();
-            }
-            else
-            {
-                foreach (ReactRoleManager.ReactRoleMessage message in ReactRoleManager._reactRoles)
+                catch (NotFoundException)
                 {
-                    DiscordMessage updatedMessage = await channel.GetMessageAsync(message.MessageId);
-                    await updatedMessage.ModifyAsync(message.ToMessage());
 
-                    // Let's not piss of discord with way too many requests
-                    await Task.Delay(2000);
                 }
             }
+
+            foreach (ReactRoleManager.ReactRoleMessage message in ReactRoleManager._reactRoles)
+            {
+                DiscordMessage createdMessage = await channel.SendMessageAsync(message.ToMessage());
+                message.MessageId = createdMessage.Id;
+
+
+                // Let's not piss of discord with way too many requests
+                await Task.Delay(1300);
+            }
+            ReactRoleManager.Save();
+        
 
             await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Finished!"));
         }
