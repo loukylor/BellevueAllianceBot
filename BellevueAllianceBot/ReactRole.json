@@ -42,6 +42,28 @@
     "years": false
   },
   {
+    "message_id": 0,
+    "embed": {
+      "color": 0,
+      "title": "BA Role",
+      "description": "Role for your role within the BA."
+    },
+    "id": "barole",
+    "react_roles": [
+      {
+        "emoji": ":mushroom:",
+        "role_id": 885307953618513970
+      },
+      {
+        "emoji": ":monkey:",
+        "role_id": 1041513744209018951
+      }
+    ],
+    "max": 25,
+    "min": 1,
+    "years": false
+  },
+  {
     "message_id": 951344158277247016,
     "embed": {
       "color": 0,
@@ -92,10 +114,6 @@
       {
         "emoji": ":bank:",
         "role_id": 964954769473032253
-      },
-      {
-        "emoji": ":mushroom:",
-        "role_id": 885307953618513970
       }
     ],
     "max": 25,
