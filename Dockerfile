@@ -14,4 +14,5 @@ COPY --from=build-env /BellevueAllianceBot/token .
 COPY --from=build-env /BellevueAllianceBot/out .
 
 # Run the app on container startup
+EXPOSE 8080/tcp
 ENTRYPOINT [ "dotnet", "BellevueAllianceBot.dll" ]
