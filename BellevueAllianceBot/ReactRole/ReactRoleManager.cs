@@ -71,6 +71,7 @@ namespace BellevueAllianceBot.ReactRole
 
         private static async Task HandleInteractionCreated(DiscordClient _, ComponentInteractionCreateEventArgs e)
         {
+            e.Handled = true;
             await e.Interaction.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource, new DiscordInteractionResponseBuilder().AsEphemeral(true));
 
             ReactRoleMessage reactRoleMessage = GetReactRoleMessage(e.Interaction.Data.CustomId)!;
